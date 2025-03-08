@@ -17,6 +17,10 @@ export const Documents: Paths[] = [
           {
             title: "为政",
             href: "/wei-zheng"
+          },
+          {
+            title: "八佾",
+            href: "/ba-yi"
           }
         ]
       }

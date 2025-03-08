@@ -11,7 +11,7 @@ const RoutedLink: React.FC<Routed> = ({ href = "#", target = "_self", children }
 
   if (isInternal) {
     return (
-      <Link href={href} passHref>
+      <Link href={href} target={target} passHref>
         {children}
       </Link>
     )
