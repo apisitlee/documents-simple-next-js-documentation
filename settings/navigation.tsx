@@ -6,8 +6,8 @@ export const Navigations = [
     href: `/docs${PageRoutes[0].href}`,
   },
   {
-    title: "Home",
-    href: "https://www.rubixstudios.com.au/",
+    title: "白板",
+    href: "https://tldraw-whiteboard-eta-pearl.vercel.app/",
     external: true,
   },
 ]
