@@ -122,7 +122,7 @@ export default function Search() {
             <LuSearch className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500 dark:text-neutral-400" />
             <Input
               className="h-9 w-full pl-10 pr-4 rounded-md border bg-muted shadow-sm md:w-full"
-              placeholder="Search documents..."
+              placeholder="全文搜索..."
               type="search"
             />
             <div className="absolute right-2 top-1/2 hidden -translate-y-1/2 items-center gap-0.5 rounded-sm bg-zinc-200 p-1 text-xs font-mono font-medium dark:bg-neutral-700 sm:flex">
@@ -132,12 +132,12 @@ export default function Search() {
           </div>
         </DialogTrigger>
         <DialogContent className="max-w-[650px] p-0 top-[45%] sm:top-[38%]">
-          <DialogTitle className="sr-only">Search</DialogTitle>
+          <DialogTitle className="sr-only">搜索</DialogTitle>
           <DialogHeader>
             <input
               value={searchedInput}
               onChange={(e) => setSearchedInput(e.target.value)}
-              placeholder="Search documents..."
+              placeholder="全文搜索..."
               autoFocus
               className="h-14 px-4 bg-transparent border-b text-[15px] outline-none"
             />
@@ -164,36 +164,36 @@ export default function Search() {
             <div className="flex flex-col items-start overflow-y-auto px-1 pt-1 pb-4 sm:px-3 w-full">
               {searchedInput
                 ? filteredResults.map((item) => {
-                    if ("href" in item) {
-                      return (
-                        <DialogClose key={item.href} asChild>
-                          <Anchor
-                            className={cn(
-                              "p-3 flex flex-col max-w-[620px] gap-0.5 text-[15px] rounded-sm hover:bg-neutral-100 dark:hover:bg-neutral-900"
-                            )}
-                            href={`/docs${item.href}`}
-                          >
-                            <div className="flex items-center h-full gap-x-2">
-                              <LuFileText className="h-[1.1rem] w-[1.1rem]" />
-                              <span className="truncate">{item.title}</span>
-                            </div>
-                            {"snippet" in item && item.snippet && (
-                              <p
-                                className="truncate text-xs text-neutral-500 dark:text-neutral-400"
-                                dangerouslySetInnerHTML={{
-                                  __html: highlight(
-                                    item.snippet,
-                                    searchedInput
-                                  ),
-                                }}
-                              />
-                            )}
-                          </Anchor>
-                        </DialogClose>
-                      )
-                    }
-                    return null
-                  })
+                  if ("href" in item) {
+                    return (
+                      <DialogClose key={item.href} asChild>
+                        <Anchor
+                          className={cn(
+                            "p-3 flex flex-col max-w-[620px] gap-0.5 text-[15px] rounded-sm hover:bg-neutral-100 dark:hover:bg-neutral-900"
+                          )}
+                          href={`/docs${item.href}`}
+                        >
+                          <div className="flex items-center h-full gap-x-2">
+                            <LuFileText className="h-[1.1rem] w-[1.1rem]" />
+                            <span className="truncate">{item.title}</span>
+                          </div>
+                          {"snippet" in item && item.snippet && (
+                            <p
+                              className="truncate text-xs text-neutral-500 dark:text-neutral-400"
+                              dangerouslySetInnerHTML={{
+                                __html: highlight(
+                                  item.snippet,
+                                  searchedInput
+                                ),
+                              }}
+                            />
+                          )}
+                        </Anchor>
+                      </DialogClose>
+                    )
+                  }
+                  return null
+                })
                 : renderDocuments(Documents)}
             </div>
           </ScrollArea>
