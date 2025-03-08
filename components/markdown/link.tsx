@@ -6,7 +6,7 @@ interface Routed {
   children: React.ReactNode
 }
 
-const RoutedLink: React.FC<Routed> = ({ href = "#", children }) => {
+const RoutedLink: React.FC<Routed> = ({ href = "#", target = "_self", children }) => {
   const isInternal = href.startsWith("/") || href.startsWith("#")
 
   if (isInternal) {
@@ -18,7 +18,7 @@ const RoutedLink: React.FC<Routed> = ({ href = "#", children }) => {
   }
 
   return (
-    <a href={href} target={target || '_self'} rel="noopener noreferrer">
+    <a href={href} target={target} rel="noopener noreferrer">
       {children}
     </a>
   )
