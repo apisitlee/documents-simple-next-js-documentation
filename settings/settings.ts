@@ -14,8 +14,8 @@ export const urlimage = "/images/og-image.png"
 export const imagealt = "Rubix Studios Documentation"
 export const twitterhandle = "@RubixStudios"
 
-export const companyname = "Apisit Lee"
-export const companylink = "/"
+export const companyname = "顾安阳"
+export const companylink = "https://14-blog-server-components2.vercel.app/"
 
 export const branding = false
 export const rightsidebar = true
