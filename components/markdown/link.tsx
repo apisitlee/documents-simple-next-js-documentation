@@ -2,6 +2,7 @@ import Link from "next/link"
 
 interface Routed {
   href?: string
+  target?: string
   children: React.ReactNode
 }
 
@@ -17,7 +18,7 @@ const RoutedLink: React.FC<Routed> = ({ href = "#", children }) => {
   }
 
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a href={href} target={target || '_self'} rel="noopener noreferrer">
       {children}
     </a>
   )
